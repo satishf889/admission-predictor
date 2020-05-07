@@ -4,11 +4,9 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
-  <title>Form</title>
+  <title>Graduate Admission Prediction</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="icon" type="image/png" href="static/images/logo.png" />
@@ -56,7 +54,7 @@
         </div>
         <div class="modal-body" style="overflow:hidden;width: 100%;">
           <form id="predictionform" class="form-horizontal"
-            style="margin-left: 20%;margin-right: 20%;background-color: white;display: none;">
+            style="margin-left: 20%;margin-right: 20%;background-color: white;display: none;" action="javascript:void(0)">
             <fieldset>
               <!-- Form Name -->
               <legend>Chance of Admission</legend>
@@ -84,16 +82,16 @@
               <div class="form-group">
                 <label for="sop" class="control-label col-xs-4">SOP</label>
                 <div class="col-xs-8">
-                  <input id="sop" name="sop" placeholder="sop rating" type="text" class="form-control"
-                    aria-describedby="sopHelpBlock" required="required" pattern="[1.0-5.0]{1,3}" maxlength="3">
+                  <input id="sop" name="sop" placeholder="sop rating" type="number" step="0.1" min="1" max="5" class="form-control"
+                    aria-describedby="sopHelpBlock" required="required" maxlength="3">
                   <span id="sopHelpBlock" class="form-text text-muted">Values should between 1-5</span>
                 </div>
               </div>
               <div class="form-group">
                 <label for="lor" class="control-label col-xs-4">LOR</label>
                 <div class="col-xs-8">
-                  <input id="lor" name="lor" placeholder="LOR Rating" type="text" class="form-control"
-                    aria-describedby="lorHelpBlock" required="required" pattern="[1.0-5.0]{1,3}">
+                  <input id="lor" name="lor" placeholder="LOR Rating" type="number" step="0.1" min="1" max="5" class="form-control"
+                    aria-describedby="lorHelpBlock" required="required">
                   <span id="lorHelpBlock" class="form-text text-muted">Value should be between 1-5</span>
                 </div>
               </div>
@@ -106,11 +104,12 @@
                   </select>
                 </div>
               </div>
-              <div class="form-group">
-                <div class="col-xs-offset-4 col-xs-8">
-                  <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+              <div class="form-group row">
+                <div class="col-xs-offset-3 col-xs-9">
+                    <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+                    <button id="predictionFormReset" type="button" name="predictionFormReset" class="btn btn-success" onclick="form_reset()">Clear</button>
                 </div>
-              </div>
+            </div>
             </fieldset>
           </form>
           <div class="card" id="profile" style="display: none;">
