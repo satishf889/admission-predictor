@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <title>Form</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="icon" type="image/png" href="static/images/logo.png" />
+  <link rel="stylesheet" type="text/css" href="static/css/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body class="border-primary">
+  <container class="supreme-container">
+    <!-----------------------------------------Navigation Bar--------------------------------------------->
+    <div id="navbar" class="navbar navbar-inverse navbar-static-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+            <li><a href="/" style="color: white;font-family: Georgia;font-size: 18px">Home</a></li>
+            <li><a href="javascript:void(0)" onclick="predictionForm()"
+                style="color: white;font-family: Georgia;font-size: 18px;">
+                Test Model</a>
+            </li>
+            <li><a href="javascript:void(0)" onclick="aboutDeveloper()"
+                style="color: white;font-family: Georgia;font-size: 18px">About Developer</a></li>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div id="myModal" class="modal" style="display: none;margin-top: 1%;margin-bottom: 3%;">
+      <!-- Modal content -->
+      <div class="modal-content" id="predictionModal">
+        <div class="modal-header">
+          <span class="close" onclick="closeModal()" style="color: white;">X</span>
+          <!-- <img src="images/logo.png" style="width: 20%;float: left;"> -->
+          <center>
+            <h3><b id="modal_heading" style="display: none;">PREDICTION</b></h2>
+          </center>
+        </div>
+        <div class="modal-body" style="overflow:hidden;width: 100%;">
+          <form id="predictionform" class="form-horizontal"
+            style="margin-left: 20%;margin-right: 20%;background-color: white;display: none;">
+            <fieldset>
+              <!-- Form Name -->
+              <legend>Chance of Admission</legend>
+              <div class="form-group">
+                <label for="gre-score" class="control-label col-xs-4">GRE Score</label>
+                <div class="col-xs-8">
+                  <input id="gre-score" name="gre-score" placeholder="Your GRE Score" type="text"
+                    aria-describedby="gre-scoreHelpBlock" class="form-control" pattern="[1-9]{1,3}" maxlength="3"
+                    required=required>
+                  <span id="gre-scoreHelpBlock" class="form-text text-muted">Value should be in range of 0-360</span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="university-rating" class="control-label col-xs-4">University Rating</label>
+                <div class="col-xs-8">
+                  <select id="university-rating" name="university-rating" class="custom-select" required="required">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="sop" class="control-label col-xs-4">SOP</label>
+                <div class="col-xs-8">
+                  <input id="sop" name="sop" placeholder="sop rating" type="text" class="form-control"
+                    aria-describedby="sopHelpBlock" required="required" pattern="[1.0-5.0]{1,3}" maxlength="3">
+                  <span id="sopHelpBlock" class="form-text text-muted">Values should between 1-5</span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="lor" class="control-label col-xs-4">LOR</label>
+                <div class="col-xs-8">
+                  <input id="lor" name="lor" placeholder="LOR Rating" type="text" class="form-control"
+                    aria-describedby="lorHelpBlock" required="required" pattern="[1.0-5.0]{1,3}">
+                  <span id="lorHelpBlock" class="form-text text-muted">Value should be between 1-5</span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="research-paper" class="control-label col-xs-4">Research Paper</label>
+                <div class="col-xs-8">
+                  <select id="research-paper" name="research-paper" class="custom-select" required="required">
+                    <option value="1">Published</option>
+                    <option value="0">Not Published</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-xs-offset-4 col-xs-8">
+                  <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </div>
+            </fieldset>
+          </form>
+          <div class="card" id="profile" style="display: none;">
+            <img src="static/images/satish.JPG" alt="John" style="width:100%">
+            <h1>Satish Fulwani</h1>
+            <p class="title">Aspiring Machine Learning Engineer</p>
+            <a href="https://in.linkedin.com/in/satish-fulwani-a831a9150"><i class="fa fa-linkedin"></i></a>
+            <a href="#"><i class="fa fa-facebook"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-----------------------------------------Text Content Box--------------------------------------------->
+    <div class="container border-primary" align="left" style="width:100%;height: 100%;;background-color:white;
+  color: #333;">
+      <center>
+        <h3><b>Graduate Admission Prediction</b></h3>
+      </center>
+      <p align="left">
+        <p align="left">This Application is developed for purpose of Demo and learning, this application does not
+          provide any assurance. This
+          website uses Machine learning model trained by me for predicting values in backend.<p>
+            <p align="left">This page is created for predicting chance of Indian Student for admission to foriegn
+              University
+            </p>
+
+            <p align="left">Dataset used for developing the model can be found here:<a
+                href="https://www.kaggle.com/mohansacharya/graduate-admissions" style="color: blue;">Dataset</a></p>
+            <p align="left">The dataset contains several parameters which are considered important during the
+              application for Masters Programs.
+              The parameters included are :
+              <ul>
+                <li>GRE Scores ( out of 340 )</li>
+                <li>TOEFL Scores ( out of 120 )</li>
+                <li>University Rating ( out of 5 )</li>
+                <li>Statement of Purpose and Letter of Recommendation Strength ( out of 5 )</li>
+                <li>Undergraduate GPA ( out of 10 )</li>
+                <li>Research Experience ( either 0 or 1 )</li>
+                <li>Chance of Admit ( ranging from 0 to 1 )</li>
+              </ul>
+            </p>
+            <p align="left">You can predict values and check model by clicking on <a href="javascript:void(0)"
+                onclick="predictionForm()" style="color: blue;">Test Model</a> above.</p>
+            <p align="left">This application is developed using Python Flask Server.</p>
+            <p align="left">For any other details feel free to contact <a
+                href="mailto:satish.fulwani@gmail.com"><b>Satish Fulwani</b></a>
+            </p>
+
+          </p>
+          <center><b>
+              <div style="margin-bottom: 2%;"><span style="color: red;font-size: 24px;">Number of visits till
+                  now:{{count}}</span></div>
+            </b></center>
+    </div>
+    <div class="footer">
+      <span>Source Code:<a href="https://github.com/satishf889/GraduateAdmission">Github</a></span>
+    </div>
+    </div>
+  </container>
+</body>
+<script src="../static/js/app.js"></script>
+
+</html>
