@@ -7,7 +7,7 @@ import sys
 
 sys.path.append('.')
 
-loaded_model = pickle.load(open('../Model/admission_model.pkl', 'rb'))
+loaded_model = pickle.load(open('./Model/admission_model.pkl', 'rb'))
 print("Model Loaded")
 
 app = Flask(__name__)
