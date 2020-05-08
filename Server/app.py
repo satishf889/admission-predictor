@@ -5,6 +5,8 @@ import pickle
 import json
 import sys
 
+sys.path.append('.')
+
 loaded_model = pickle.load(open('../Model/admission_model.pkl', 'rb'))
 print("Model Loaded")
 
