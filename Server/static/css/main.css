@@ -181,3 +181,10 @@ title {
 .closebtn:hover {
   color: black;
 }
+
+@media screen and (max-width:600px){
+  .body:{
+    width: 50%;
+    height: 50%;
+  }
+}
