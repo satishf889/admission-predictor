@@ -7,7 +7,7 @@ import sys
 
 sys.path.append('.')
 
-loaded_model = pickle.load(open('Model/admission_model.pkl', 'rb'))
+loaded_model = pickle.load(open('/app/Server/Model/admission_model.pkl', 'rb'))
 print("Model Loaded")
 
 app = Flask(__name__)
@@ -37,16 +37,16 @@ def predict():
     return {"prediction":expected_per}
 
 def countValue():
-    with open('logs/count.txt','r') as fr:
+    with open('/app/Server/logs/count.txt','r') as fr:
         count=int(fr.read())
         return count
 
 def updateCount(new_count):
-    with open('logs/count.txt','w') as fw:
+    with open('/app/Server/logs/count.txt','w') as fw:
         fw.write(f"{new_count}")
     
 def updateLog(log):
-    with open('logs/prediction-log.txt','a') as fw:
+    with open('/app/Server/logs/prediction-log.txt','a') as fw:
         fw.write(f"{log}\n")
 
 if __name__ == "__main__":
